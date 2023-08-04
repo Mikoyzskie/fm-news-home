@@ -1,7 +1,11 @@
-import './globals.css'
+import './globals.scss'
+import Image from 'next/image'
 import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400','700','800']
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +15,30 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} max-w-screen-xl`}>
+        <header className="header-main flex flex-column justify-between items-center max-w-screen-xl pb-10 pt-14">
+          <div className="logo-container">
+            <Image
+              className="main-logo"
+              src="/logo.svg"
+              alt="News Home Logo"
+              width={60}
+              height={60}
+              priority
+            />
+          </div>
+          <div className="menu-container">
+            <ul className="flex flex-row">
+              <li>Home</li>
+              <li>New</li>
+              <li>Popular</li>
+              <li>Trending</li>
+              <li>Categories</li>
+            </ul>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   )
 }

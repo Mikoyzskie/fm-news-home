@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+*,::after,::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  margin: auto;
+  
+}
+
+.header-main{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-color: #fff;
+  .logo-container{
+    flex: 65%;
+  }
+  .menu-container{
+    flex: 35%;
+    ul{
+      justify-content: space-between;
+      li{
+        color: hsl(236, 13%, 42%);
+        &:hover{
+          color: hsl(35, 77%, 62%);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+}
+
+.main-container{
+  margin-top: 133px;
+  .section-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 40px 30px;
+    grid-template-areas: 
+    "featured-container featured-container latest-container"
+    "featured-title featured-details latest-container"
+    "blog1 blog2 blog3";
+    height: 100vh;
+    .featured-container{
+      grid-area: featured-container;
+    }
+    .latest-container{
+      grid-area: latest-container;
+      background-color: #000;
+      h2{
+        color:#fff;
+      }
+    }
+    .featured-title{
+      grid-area: featured-title;
+      h2{
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        line-height: 1.25em;
+        font-size: 3.75rem;
+      }
+    }
+    .featured-details{
+      grid-area: featured-details;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      p{
+        color: hsl(236, 13%, 42%);
+      }
+      .featured-link{
+        padding: 10px 20px;
+        background-color: hsl(5, 85%, 63%);
+        color: #fff;
+        letter-spacing: 3px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        transition: all 400ms;
+        &:hover{
+          background-color: hsl(240, 100%, 5%);
+        }
+      }
+    }
+    .blog1{
+      grid-area: blog1;
+    }
+    .blog2{
+      grid-area: blog2;
+    }
+    .blog3{
+      grid-area: blog3;
+    }
+    .featured-blogs{
+      display: flex;
+      gap: 20px;
+      .blog-details{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  }
+}
